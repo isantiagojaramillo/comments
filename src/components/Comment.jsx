@@ -5,8 +5,7 @@ export const Comment = ({data}) => {
     <>
         <h1 className='text-center'>Comment Box</h1>
         <div>
-          {data.map((key, value) => (
-            <div key={value} className='container justify-content-center'>
+            <div className='container justify-content-center'>
               <table class="table">
                   <thead>
                     <tr>
@@ -14,15 +13,16 @@ export const Comment = ({data}) => {
                       <th scope="col">Comment</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>{key.user}</td>
-                      <td>{key.comment}</td>
-                    </tr>
-                  </tbody>
+                  {data.map((key, value) => (
+                    <tbody>
+                      <tr>
+                        <td key={value}>{key.user}</td>
+                        <td>{key.comment}</td>
+                      </tr>
+                    </tbody>
+                  ))}
               </table>
             </div>
-          ))}
         </div>
     </>
   )
